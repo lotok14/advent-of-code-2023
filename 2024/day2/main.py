@@ -1,0 +1,4 @@
+# part 1
+print((lines:=[lst if(lst:=list(map(int,line.strip().split(" "))))==sorted(lst)or lst==sorted(lst,reverse=True) else 0 for line in open("input.txt", "r").readlines()],sum([1 if sum(temp2:=[1 if(temp:=abs(elem-line[i-1]))>=1 and temp<=3 else 0 for i,elem in enumerate(line) if i > 0])==len(temp2) else 0 for line in lines if line!=0]))[1])
+# part 2
+print((lines:=[list(map(int,line.strip().split(" "))) for line in open("input.txt","r").readlines()],sum([1 if sum([1 if(((lst:=[elem for i,elem in enumerate(line) if i!=elem_to_remove])==sorted(lst)or lst==sorted(lst,reverse=True))and(sum(temp2:=[1 if(temp:=abs(elem-lst[i-1]))>=1 and temp<=3 else 0 for i,elem in enumerate(lst) if i > 0])==len(temp2))) else 0 for elem_to_remove in range(-1,len(line))])>=1 else 0 for line in lines]))[1])
